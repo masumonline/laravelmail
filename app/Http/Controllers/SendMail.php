@@ -12,16 +12,15 @@ class SendMail extends Controller
         $email = [
             'masumcis@gmail.com',
             'masum@activelava.net',
-            'masum@hitbts.com'   
+            'masum@hitbts.com',
+            'eva@officextracts.com'
         ];
         //return $email;
         $data = $request->data;
         foreach($email as $mail){
             Mail::to($mail)->queue(new sendmailto($data));    
-            sleep(10);
+            sleep(5);
         }
-
-
         return redirect('/')->with('status', 'mail send');
     }
 }
